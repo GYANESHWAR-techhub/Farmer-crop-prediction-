@@ -98,9 +98,9 @@ const navigate = useNavigate();
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-emerald-50 leading-relaxed">
+          {/* <p className="text-lg md:text-xl text-emerald-50 leading-relaxed">
             {t("heroText")}
-          </p>
+          </p> */}
 
           {/* Buttons */}
              <div className="flex flex-col sm:flex-row gap-4 pt-2">
