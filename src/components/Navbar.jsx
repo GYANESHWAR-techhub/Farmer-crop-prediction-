@@ -44,13 +44,13 @@ const Navbar = () => {
         {/* Links + logout */}
         <div className="flex items-center gap-2">
           <NavLink to="/home" className={linkClass}>
-            {t("Dashboard")}
+            {t("dashboard")}
           </NavLink>
           <NavLink to="/upload" className={linkClass}>
-            {t("Drone Upload")}
+            {t("droneUpload")}
           </NavLink>
           <NavLink to="/profit" className={linkClass}>
-            {t("Profit")}
+            {t("profit")}
           </NavLink>
 
           <button

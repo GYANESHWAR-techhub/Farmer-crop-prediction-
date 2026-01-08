@@ -11,17 +11,26 @@ const Dashboard = () => {
         <div className="bg-yellow-100 p-4 rounded-lg">Expected Income: ₹75k</div>
       </div>
 
-      {/* Primary action for farmer */}
-      <div>
+      {/* Primary actions */}
+      <div className="flex flex-wrap gap-3">
         <button
           className="px-4 py-2 rounded-full bg-emerald-600 text-white text-sm font-semibold"
         >
           Request drone scan
         </button>
-        <p className="mt-1 text-xs text-gray-500">
-          Critical stages pe hi scan karwayen: shuruat, beech crop aur harvest se pehle.
-        </p>
+
+        {/* extra: you can add more actions later */}
+        <button
+          className="px-4 py-2 rounded-full bg-white border border-emerald-600 text-emerald-700 text-sm font-semibold"
+        >
+          View last scan report
+        </button>
       </div>
+
+      {/* Info below button stays same */}
+      <p className="mt-1 text-xs text-gray-500">
+        Critical stages pe hi scan karwayen: shuruat, beech crop aur harvest se pehle.
+      </p>
 
       {/* Fields section */}
       <div className="bg-white shadow rounded-lg p-4">
@@ -35,5 +44,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
 
 

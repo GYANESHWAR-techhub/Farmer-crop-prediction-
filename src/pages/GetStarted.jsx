@@ -103,7 +103,8 @@ const navigate = useNavigate();
           </p> */}
 
           {/* Buttons */}
-             <div className="flex flex-col sm:flex-row gap-4 pt-2">
+          <div className="flex justify-center">
+             <div className="flex flex-col sm:flex-row gap-20 pt-2">
       <button
         onClick={handleGetStarted}
         className="bg-white text-emerald-700 font-semibold px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl transition flex items-center justify-center gap-2"
@@ -119,7 +120,7 @@ const navigate = useNavigate();
         {t("createAccount")}
       </Link>
     </div>
-         
+      </div>   
 
           {/* Feature cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">

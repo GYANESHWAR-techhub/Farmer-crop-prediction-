@@ -86,7 +86,8 @@ const translations = {
     confirmPasswordPlaceholder: "Re-enter password",
 
     // Home/Dashboard
-    todaySnapshot: "Here is today's snapshot of your fields, health and income.",
+    todaySnapshot:
+      "Here is today's snapshot of your fields, health and income.",
     droneUpdated:
       "Drone scan updated 2 hours ago • Weather: Good for spraying",
     totalFields: "Total fields",
@@ -111,24 +112,72 @@ const translations = {
     paddy: "Paddy",
     priceFalling: "Price falling ↓",
     logout: "Logout",
-    dashboard: "dashboard",
-    droneUpload: "droneUpload",
-    profit: "profit",
-    // In en:
-profitCalculatorTitle: "Crop Profit Calculator",
-profitCalculatorDesc: "Estimate yield, revenue and profit for your crop.",
-uploadDroneTitle: "Upload Drone Images",
-uploadDroneDesc: "Send field images to AI for pest, stress and yield analysis.",
-aiAssistantTitle: "AI Farm Assistant",
-chatWelcome: "Namaste! Ask me about your crop, yield or prices.",
-chatDemoReply: "Demo reply: I will analyze your field and prices.",
-chatPlaceholder: "Type your question in English/Hindi...",
-send: "Send",
-askSathi: "askSathi",
-forgotPasswordTitle: "Forgot password?",
-forgotPasswordDesc: "Create a new password for your AgriVistaar account.",
-saveNewPassword: "Save new password",
+    dashboard: "Dashboard",
+    droneUpload: "Drone Upload",
+    profit: "Profit",
 
+    // Calculator, upload, chat, forgot password
+    profitCalculatorTitle: "Crop Profit Calculator",
+    profitCalculatorDesc: "Estimate yield, revenue and profit for your crop.",
+    uploadDroneTitle: "Upload Drone Images",
+    uploadDroneDesc:
+      "Send field images to AI for pest, stress and yield analysis.",
+    aiAssistantTitle: "AI Farm Assistant",
+    chatWelcome: "Namaste! Ask me about your crop, yield or prices.",
+    chatDemoReply: "Demo reply: I will analyze your field and prices.",
+    chatPlaceholder: "Type your question in English/Hindi...",
+    send: "Send",
+    askSathi: "Ask Sathi",
+    forgotPasswordTitle: "Forgot password?",
+    forgotPasswordDesc: "Create a new password for your AgriVistaar account.",
+    saveNewPassword: "Save new password",
+requestScanButton: "Request drone scan",
+viewLastScanButton: "View last scan report",
+areaPlaceholder: "Area (acre)",
+totalCostPlaceholder: "Total cost (₹)",
+expectedPricePlaceholder: "Expected market price (₹ per quintal)",
+predictedYieldPlaceholder: "Predicted yield (quintal per acre)",
+analyzeFieldButton: "Analyze field",
+requestScanTitle: "Request drone scan",
+requestScanDesc:
+  "Select which field and crop stage you want to scan. This request will go to your FPO / drone operator.",
+fieldLabel: "Field",
+cropStageLabel: "Crop stage",
+preferredDateLabel: "Preferred date",
+pilotNotesLabel: "Notes for pilot (optional)",
+submitScanButton: "Submit scan request",
+lastScanTitle: "Last drone scan report",
+lastScanDesc:
+  "See the latest drone images, pest risk, nutrient stress and yield estimate for your fields.",
+healthSummaryTitle: "Health summary",
+yieldPredictionTitle: "Yield prediction",
+pestRiskMedium: "Pest risk: Medium (patches in north side)",
+nutrientStressLow: "Nutrient stress: Low",
+expectedYieldLine: "Expected yield: 22–26 q/acre",
+profitHint:
+  "Use Profit calculator page to see expected income and profit for this yield.",
+dronePlaceholder: "Drone image / NDVI map placeholder",
+homeTitle: "Your fields",
+    requestScanTitle: "Request drone scan",
+    fieldLabel: "Field",
+    selectFieldPlaceholder: "Select field",
+    stageLabel: "Growth stage",
+    selectStagePlaceholder: "Select stage",
+    stageEarly: "Early vegetative",
+    stageMid: "Mid-season",
+    stagePreHarvest: "Pre-harvest",
+    dateLabel: "Preferred scan date",
+    notesLabel: "Notes for FPO (optional)",
+    notesPlaceholder: "E.g. focus on yellow patches in north side",
+    submitScanRequest: "Submit request",
+    fieldRequired: "Field is required",
+    stageRequired: "Stage is required",
+    dateRequired: "Preferred date is required",
+    healthy: "Healthy",
+fieldHealthy: "Healthy crop",
+    // Scan tip
+    criticalScanTip:
+"Get scans done at critical stages: at the beginning, mid-crop stage, and before harvest.",
   },
 
   hi: {
@@ -140,20 +189,24 @@ saveNewPassword: "Save new password",
     signup: "साइन अप",
     welcome: "नमस्ते, किसान जी 👋",
     welcomeFarmer: "नमस्ते, किसान जी",
-// In hi:
-profitCalculatorTitle: "फसल लाभ कैलकुलेटर",
-profitCalculatorDesc: "अपनी फसल की उपज, आमदनी और लाभ का अनुमान लगाएं।",
-uploadDroneTitle: "ड्रोन चित्र अपलोड करें",
-uploadDroneDesc: "कीट, तनाव और उपज विश्लेषण के लिए खेत की तस्वीरें भेजें।",
-aiAssistantTitle: "एआई खेती सहायक",
-chatWelcome: "नमस्ते! अपनी फसल, उपज या मंडी कीमतों के बारे में पूछें।",
-chatDemoReply: "डेमो जवाब: मैं आपके खेत और कीमतों का विश्लेषण करूंगा।",
-chatPlaceholder: "अपना सवाल हिंदी/अंग्रेज़ी में लिखें...",
-send: "भेजें",
-askSathi: "आस्क साथी",
-forgotPasswordTitle: "पासवर्ड भूल गए?",
-forgotPasswordDesc: "अपने एग्रीविस्तार खाते के लिए नया पासवर्ड बनाएं।",
-saveNewPassword: "नया पासवर्ड सेव करें",
+
+    // Calculator, upload, chat, forgot password
+    profitCalculatorTitle: "फसल लाभ कैलकुलेटर",
+    profitCalculatorDesc: "अपनी फसल की उपज, आमदनी और लाभ का अनुमान लगाएं।",
+    uploadDroneTitle: "ड्रोन चित्र अपलोड करें",
+    uploadDroneDesc:
+      "कीट, तनाव और उपज विश्लेषण के लिए खेत की तस्वीरें भेजें।",
+    aiAssistantTitle: "एआई खेती सहायक",
+    chatWelcome:
+      "नमस्ते! अपनी फसल, उपज या मंडी कीमतों के बारे में पूछें।",
+    chatDemoReply: "डेमो जवाब: मैं आपके खेत और कीमतों का विश्लेषण करूंगा।",
+    chatPlaceholder: "अपना सवाल हिंदी/अंग्रेज़ी में लिखें...",
+    send: "भेजें",
+    askSathi: "आस्क साथी",
+    forgotPasswordTitle: "पासवर्ड भूल गए?",
+    forgotPasswordDesc:
+      "अपने एग्रीविस्तार खाते के लिए नया पासवर्ड बनाएं।",
+    saveNewPassword: "नया पासवर्ड सेव करें",
 
     // GetStarted Page
     getStarted: "शुरू करें",
@@ -249,6 +302,56 @@ saveNewPassword: "नया पासवर्ड सेव करें",
     dashboard: "डैशबोर्ड",
     droneUpload: "ड्रोन अपलोड",
     profit: "मुनाफ़ा",
+    // in translations.hi
+requestScanButton: "ड्रोन स्कैन की अनुरोध करें",
+viewLastScanButton: "पिछली स्कैन रिपोर्ट देखें",
+askSathi: "साथी से पूछें", // or 
+areaPlaceholder: "क्षेत्रफल (एकड़)",
+totalCostPlaceholder: "कुल लागत (₹)",
+expectedPricePlaceholder: "अपेक्षित मंडी कीमत (₹ प्रति क्विंटल)",
+predictedYieldPlaceholder: "अनुमानित उपज (क्विंटल प्रति एकड़)",
+
+analyzeFieldButton: "खेत की जाँच करें",
+requestScanTitle: "ड्रोन स्कैन का अनुरोध",
+requestScanDesc:
+  "कौन‑सा खेत और फसल चरण स्कैन करवाना है चुनें। यह अनुरोध आपके एफपीओ / ड्रोन ऑपरेटर को जाएगा।",
+fieldLabel: "खेत",
+cropStageLabel: "फसल का चरण",
+preferredDateLabel: "पसंदीदा तिथि",
+pilotNotesLabel: "पायलट के लिए नोट (वैकल्पिक)",
+submitScanButton: "स्कैन अनुरोध भेजें",
+lastScanTitle: "आख़िरी ड्रोन स्कैन रिपोर्ट",
+lastScanDesc:
+  "अपने खेतों के लिए ताज़ा ड्रोन चित्र, कीट जोखिम, पोषक तनाव और उपज अनुमान देखें।",
+healthSummaryTitle: "स्वास्थ्य सारांश",
+yieldPredictionTitle: "उपज अनुमान",
+pestRiskMedium: "कीट जोखिम: मध्यम (उत्तर हिस्से में पैच)",
+nutrientStressLow: "पोषक तनाव: कम",
+expectedYieldLine: "अनुमानित उपज: 22–26 क्विंटल/एकड़",
+profitHint:
+  "इस उपज के लिए अपेक्षित आय और मुनाफ़ा देखने के लिए लाभ कैलकुलेटर पेज का उपयोग करें।",
+dronePlaceholder: "ड्रोन छवि / NDVI मानचित्र प्लेसहोल्डर",
+    // Scan tip
+    criticalScanTip:
+      "सिर्फ ज़रूरी चरणों पर ही स्कैन करवाएं: शुरुआत, बीच की फसल और कटाई से पहले।",
+       homeTitle: "आपके खेत",
+    requestScanTitle: "ड्रोन स्कैन का अनुरोध",
+    fieldLabel: "खेत",
+    selectFieldPlaceholder: "खेत चुनें",
+    stageLabel: "फसल की अवस्था",
+    selectStagePlaceholder: "अवस्था चुनें",
+    stageEarly: "प्रारंभिक अवस्था",
+    stageMid: "मध्य अवस्था",
+    stagePreHarvest: "कटाई से पहले",
+    dateLabel: "स्कैन की पसंदीदा तारीख",
+    notesLabel: "एफपीओ के लिए नोट्स (वैकल्पिक)",
+    notesPlaceholder: "जैसे: उत्तर वाले हिस्से के पीले पैच पर ध्यान दें",
+    submitScanRequest: "अनुरोध भेजें",
+    fieldRequired: "खेत चुनना जरूरी है",
+    stageRequired: "अवस्था चुनना जरूरी है",
+    dateRequired: "तारीख चुनना जरूरी है",
+    healthy: "स्वस्थ",
+fieldHealthy: "स्वस्थ फसल",
   },
 
   ta: {
@@ -259,7 +362,7 @@ saveNewPassword: "नया पासवर्ड सेव करें",
     signup: "பதிவு செய்யவும்",
     welcome: "வணக்கம், கிசான் ஜி 👋",
     welcomeFarmer: "வணக்கம், கிசான் ஜி",
-    // keep rest same as your previous TA keys or copy EN and translate later
+    // extend later as needed
   },
 
   bn: {
@@ -270,7 +373,7 @@ saveNewPassword: "नया पासवर्ड सेव करें",
     signup: "সাইন আপ",
     welcome: "নমস্কার, কিসান জি 👋",
     welcomeFarmer: "নমস্কার, কিসান জি",
-    // keep rest same as your previous BN keys or copy EN and translate later
+    // extend later as needed
   },
 
   mr: {
@@ -281,7 +384,7 @@ saveNewPassword: "नया पासवर्ड सेव करें",
     signup: "साइन अप",
     welcome: "नमस्ते, किसान जी 👋",
     welcomeFarmer: "नमस्ते, किसान जी",
-    // copy other keys from en for now
+    // extend later as needed
   },
 
   te: {
@@ -292,7 +395,7 @@ saveNewPassword: "नया पासवर्ड सेव करें",
     signup: "సైన్ అప్",
     welcome: "నమస్తే, కిసాన్ జీ 👋",
     welcomeFarmer: "నమస్తే, కిసాన్ జీ",
-    // copy other keys from en for now
+    // extend later as needed
   },
 };
 
@@ -328,6 +431,7 @@ export const LanguageProvider = ({ children }) => {
     </LanguageContext.Provider>
   );
 };
+
 
 
 

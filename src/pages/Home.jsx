@@ -1,10 +1,20 @@
+// src/pages/Home.jsx
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import { fields } from "../data/fields";
+import { getScanStatusForField } from "../utils/scanPlanner";
 
 const Home = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
+
+  const fieldsWithDueScan = fields.filter(
+    (f) => getScanStatusForField(f).scanDueNow
+  );
 
   return (
     <div className="p-4 md:p-6 space-y-6">
+      {/* Top greeting + status banner */}
       <div className="flex flex-col md:flex-row justify-between gap-4 items-start">
         <div>
           <h1 className="text-2xl md:text-3xl font-semibold text-slate-900">
@@ -17,6 +27,20 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Global scan reminder banner */}
+      {fieldsWithDueScan.length > 0 && (
+        <div className="bg-amber-50 border border-amber-200 text-amber-800 text-xs md:text-sm px-4 py-2 rounded-xl">
+          <p className="mt-1 text-xs text-gray-500">
+Conduct high-value drone scans only at 2–3 critical stages of the season; there is no need to fly a drone every week.
+</p>
+
+          {`Scan recommended this week for ${
+            fieldsWithDueScan[0].name
+          } (key growth stage).`}
+        </div>
+      )}
+
+      {/* Summary cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-emerald-100 border border-emerald-200 p-4 rounded-xl">
           <p className="text-xs text-emerald-800">{t("totalFields")}</p>
@@ -36,7 +60,26 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Primary actions row */}
+      <div className="flex flex-wrap gap-3">
+        <button
+          onClick={() => navigate(`/request-scan?field=${fields[0].id}`)}
+          className="px-4 py-2 rounded-full bg-emerald-600 text-white text-sm font-semibold"
+        >
+          {t("requestScanButton")}
+        </button>
+        <button
+          onClick={() => navigate("/last-scan")}
+          className="px-4 py-2 rounded-full bg-white border border-emerald-600 text-emerald-700 text-sm font-semibold"
+        >
+          {t("viewLastScanButton")}
+        </button>
+      </div>
+      <p className="mt-1 text-xs text-gray-500">{t("criticalScanTip")}</p>
+
+      {/* Fields + mandi signal */}
       <div className="grid md:grid-cols-3 gap-5">
+        {/* My fields */}
         <div className="md:col-span-2 bg-white rounded-2xl shadow-sm p-4">
           <div className="flex justify-between items-center mb-2">
             <h2 className="text-lg font-semibold">{t("myFields")}</h2>
@@ -47,37 +90,44 @@ const Home = () => {
           <p className="text-xs text-gray-500 mb-3">{t("clickField")}</p>
 
           <div className="grid md:grid-cols-3 gap-3">
-            <div className="border rounded-xl p-3 hover:shadow cursor-pointer">
-              <p className="font-semibold text-sm">{t("wheatNorth")}</p>
-              <p className="text-xs text-gray-500">
-                {t("moderatePestRisk")}
-              </p>
-              <p className="text-xs mt-1">
-                {t("yield")}:{" "}
-                <span className="font-semibold">22–25 q/acre</span>
-              </p>
-            </div>
-            <div className="border rounded-xl p-3 hover:shadow cursor-pointer">
-              <p className="font-semibold text-sm">{t("mustardEast")}</p>
-              <p className="text-xs text-gray-500">{t("healthy")}</p>
-              <p className="text-xs mt-1">
-                {t("yield")}:{" "}
-                <span className="font-semibold">26–29 q/acre</span>
-              </p>
-            </div>
-            <div className="border rounded-xl p-3 hover:shadow cursor-pointer">
-              <p className="font-semibold text-sm">{t("paddySouth")}</p>
-              <p className="text-xs text-gray-500">
-                {t("nutrientStress")}
-              </p>
-              <p className="text-xs mt-1">
-                {t("yield")}:{" "}
-                <span className="font-semibold">18–21 q/acre</span>
-              </p>
-            </div>
+            {fields.map((field) => {
+              const status = getScanStatusForField(field);
+              const scansText = `${status.scansDone}/${status.totalRecommended} scans this season`;
+
+              let nextText = "";
+              if (status.scanDueNow && status.currentWindow) {
+                nextText = `Scan due now (${status.currentWindow.label} stage)`;
+              } else if (status.nextWindow) {
+                const daysUntil =
+                  status.nextWindow.start - status.daysSinceSowing;
+                nextText = `Next scan: ${status.nextWindow.label} in ~${daysUntil} days`;
+              }
+
+              return (
+                <div
+                  key={field.id}
+                  className="border rounded-xl p-3 hover:shadow cursor-pointer"
+                  onClick={() =>
+                    navigate(`/request-scan?field=${field.id}`)
+                  }
+                >
+                  <p className="font-semibold text-sm">{field.name}</p>
+                  <p className="text-xs text-gray-500">
+                    {t(field.statusLabelKey)}
+                  </p>
+                  <p className="text-xs mt-1 text-gray-600">{scansText}</p>
+                  {nextText && (
+                    <p className="text-[11px] text-emerald-700 mt-1">
+                      {nextText}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
+        {/* Today's mandi signal */}
         <div className="bg-white rounded-2xl shadow-sm p-4 space-y-3">
           <h2 className="text-lg font-semibold">{t("todayMandi")}</h2>
           <p className="text-xs text-gray-500">{t("mandiDesc")}</p>
@@ -108,6 +158,13 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
+
+
+
 
 
 
