@@ -13,7 +13,7 @@ import ChatFloat from "./components/ChatFloat";
 import ForgotPassword from "./pages/ForgotPassword";
 import RequestScan from "./pages/RequestScan";
 import LastScanReport from "./pages/LastScanReport";
-
+// test change 
 const App = () => {
   const location = useLocation();
   const hideNavbarRoutes = ["/", "/login", "/signup", "/forgot-password"];
